@@ -1,0 +1,21 @@
+body.cv
+{
+    border-style: double; border-color: rgb(29, 40, 70); border-width: 12px; font-size: 20px;
+}
+.cv h1, .cv p
+{
+    color: rgb(29, 40, 70); text-align: center;
+}
+.cv span
+{
+    font-weight: bold;
+}
+.titleCv
+{
+    background-color: rgb(29, 40, 70); color: white; 
+    padding: 5px; font-size: 24px; font-weight: bold;
+}
+.cv div
+{
+    padding: 10px; color: rgb(29, 40, 70);
+}
