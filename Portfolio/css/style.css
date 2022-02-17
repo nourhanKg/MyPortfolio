@@ -1,0 +1,478 @@
+/*set up*/
+html{
+    scroll-behavior: smooth;
+}
+body{
+    font-family: 'Open Sans', sans-serif;
+}
+*{
+    margin: 0; padding: 0;
+    box-sizing: border-box;
+    transition: .3s;
+    -webkit-transition: .3s;
+    -moz-transition: .3s;
+    -ms-transition: .3s;
+    -o-transition: .3s;
+}
+p{
+    color: var(--textColor, grey);
+    margin-top: 20px; margin-bottom: 10px;
+    line-height: 1.7; font-size: 18px; letter-spacing: 1px;
+}
+:root{
+    --subColor: rgb(131, 147, 170);
+    --mainColor: rgb(193, 166, 195);
+    --textColor: rgb(148, 154, 162);
+    --stylisFont: 'Dancing Script', cursive;
+    --typingChar: 29;
+    --typingSpeed: 3s;
+}
+/*myClasses*/
+.clear{
+    clear: both;
+}
+.flex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.cool{
+    font-family: var(--stylisFont); font-size: larger;
+}
+.hElement {
+    font-family: 'Roboto Mono', monospace; 
+}
+.container {
+    overflow: hidden;
+}
+.btn {
+    border: none; background: none; border-radius: 0;
+    color: inherit; font-size: 16px;
+}
+.btn:focus, .btn:active {
+    box-shadow: none; outline: none;
+}
+.btnBox{
+    border: 1px solid var(--mainColor, violet);
+    margin: 20px 0;
+    color: var(--textColor, grey);
+}
+.btnBox:hover, .btnBox:focus, .btnBox:active {
+    color: var(--mainColor, violet);
+}
+/*reaccurring styles*/
+.about,
+.skills, 
+.contact, 
+.portfolio{
+    margin-top: 80px; padding-top: 80px;
+}
+.about h2, 
+.skills h2, 
+.portfolio h2,
+.otherWork h2 {
+    color: var(--mainColor, violet);
+}
+.portfolio > p, 
+.otherWork > p {
+    font-weight: 600; margin: 40px 0;
+}
+.projectCard:hover .explore,
+.projectCard:focus .explore,
+.projectCard:hover .title,
+.projectCard:focus .title {
+    transform: translateY(0);
+    -webkit-transform: translateY(0);
+    -moz-transform: translateY(0);
+    -ms-transform: translateY(0);
+    -o-transform: translateY(0);
+}
+/*scroll to top*/
+.scroll {
+    position: fixed;
+    right: 20px; bottom: 25px;
+    color: var(--mainColor, violet);
+    display: none;
+    font-size: 30px;
+    padding: 4px;
+    z-index: 1;
+}
+.scroll:hover, .scroll:focus {
+    box-shadow: 0px 0px 10px 1px rgb(0 0 0 / 25%);
+}
+/*reset navbar*/
+.navbar-default{
+    background-color: white;
+    border-radius: 0; border: none; margin: 0;
+}
+/*reset toggle*/
+.navbar-default .navbar-toggle .icon-bar {
+    background-color: var(--mainColor, violet);
+}
+.navbar-toggle .icon-bar {
+    width: 30px; height: 3px;
+}
+.navbar-default .navbar-toggle:hover, .navbar-default .navbar-toggle:focus {
+    background: none;
+}
+.navbar-default .navbar-toggle {
+    border: none;
+}
+.navbar-toggle {
+    margin-top: 24px; margin-right: 10px;
+}
+.navbar-default .navbar-collapse {
+    border-color: var(--mainColor, violet);
+}
+/*styling links*/
+.navbar-nav > li > a {
+    padding-top: 30px; padding-bottom: 30px;
+}
+.navbar-default .navbar-nav > li > a {
+    color: var(--textColor, grey);
+    font-size: 20px; font-weight: 400;
+}
+.navbar-default .navbar-nav > li > a:hover, 
+.navbar-default .navbar-nav > li > a:focus {
+    color: var(--mainColor, violet);
+}
+.navbar-default .navbar-nav > .active > a,
+.navbar-default .navbar-nav > .active > a:hover,
+.navbar-default .navbar-nav > .active > a:focus  {
+    color: var(--mainColor, violet);
+    background: none;
+    font-weight: 500;
+}
+/*styling brand name*/
+.navbar-default .navbar-brand {
+    color: var(--mainColor, violet);
+    font-size: 40px; line-height: 40px;
+    padding: 20px 15px;
+    height: 80px;
+}
+.navbar-default .navbar-brand:hover, .navbar-default .navbar-brand:focus {
+    color: var(--mainColor, violet);
+}
+/*styling intro section*/
+.intro {
+    margin-top: 200px; padding-left: 180px;
+    position: relative;
+}
+/*Background Shapes*/
+.intro::before, .intro::after {
+    content: ""; position: absolute; z-index: -1;
+}
+.intro::after {
+    background-color: var(--mainColor, violet);
+    bottom: -7px;
+    right: 44px;
+    width: 200px;
+    height: 180px;
+    clip-path: polygon(100% 0, 100% 100%, 0 100%);
+    transform-origin: left center;
+    transform: rotate(30deg);
+    -webkit-transform: rotate(30deg);
+    -moz-transform: rotate(30deg);
+    -ms-transform: rotate(30deg);
+    -o-transform: rotate(30deg);
+}
+.intro::before{
+    background-color: var(--subColor, teal);
+    width: 180px; 
+    height: 200px;
+    clip-path: polygon(100% 0, 0 0, 0 100%);
+    top: 0; 
+    left: 0;
+}
+.typing {
+    position: relative;
+    font-size: 32px;
+    color: var(--subColor, teal);
+    overflow: hidden;
+}
+/*styling skills section*/
+.myProgress {
+    margin-top: 40px; padding-left: 0;
+    overflow: hidden;
+}
+.myProgress label {
+    margin-bottom: 20px;
+    color: var(--textColor, grey);
+    font-weight: 500; font-size: 18px;
+}
+.progress{
+    background-color: var(--textColor, grey);
+    border-radius: 0;
+    height: 3px;
+    margin-bottom: 30px;
+    overflow: visible;
+}
+.progress-bar{
+    background-color: var(--mainColor, violet);
+    position: relative;
+}
+.progress-bar::after{
+    content: attr(aria-valuenow);
+    color: var(--mainColor, violet);
+    width: 30px; height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--mainColor, violet);
+    font-size: 16px;
+    font-weight: 600;
+    position: absolute;
+    left: 100%; 
+    margin-left: -15px;
+    top: -40px;
+}
+.progress-bar::before{
+    content: "";
+    background-color: var(--mainColor, violet);
+    width: 12px;
+    height: 12px;
+    position: absolute;
+    left: 100%;
+    margin-left: -6px;
+    top: -6px;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+}
+/*styling portfolio section*/
+.projectCard {
+    margin-bottom: 30px;
+    position: relative;
+    overflow: hidden;
+}
+.projectCard img {
+    height: 200px; width: 100%;
+}
+.explore {
+    background-color: rgb(196, 163, 192, .6);
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    position: absolute;
+    width: calc(100% - 30px);
+    height: 100%;
+    top: 0;
+    transform: translateY(-100%);
+    -webkit-transform: translateY(-100%);
+    -moz-transform: translateY(-100%);
+    -ms-transform: translateY(-100%);
+    -o-transform: translateY(-100%);
+}
+.explore .btn, .explore a {
+    color: white; font-size: 30px;
+}
+.explore .btn:hover, .explore a:hover {
+    transform: scale(1.2);
+    -webkit-transform: scale(1.2);
+    -moz-transform: scale(1.2);
+    -ms-transform: scale(1.2);
+    -o-transform: scale(1.2);
+}
+.explore i {
+    pointer-events: none;
+}
+.project {
+    position: fixed;
+    background-color: white;
+    width: 80%;
+    max-width: 600px;
+    height: 350px;
+    padding: 40px;
+    top: 50%;
+    left: 50%;
+    z-index: 1050;
+    align-content: center;
+    box-shadow: 0 10px 50px rgba(0, 0, 0, 0.3);
+    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+}
+.project p {
+    height: 100%;
+    overflow-y: auto;
+    align-content: center;
+}
+.project .closed {
+    color: var(--mainColor, violet);
+    position: fixed;
+    top: 16px;
+    right: 20px;
+    font-size: 24px;
+}
+#overlay {
+    position: fixed;
+    background-color: rgb(0, 0, 0, .2);
+    backdrop-filter: blur(4px);
+    width: 100vw; height: 100vh;
+    top: 0; left: 0;
+    z-index: 1040;
+}
+#showMore{
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    width: fit-content;
+}
+.otherWork{
+    margin-top: 80px;
+}
+.otherWork .projectCard {
+    margin-top: 30px;
+}
+.title {
+    padding: 10px;
+    font-size: 18px;
+    color: var(--mainColor, teal);
+    background-color: white;
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    transform: translateY(100%);
+    -webkit-transform: translateY(100%);
+    -moz-transform: translateY(100%);
+    -ms-transform: translateY(100%);
+    -o-transform: translateY(100%);
+}
+/*styling contact section*/
+.contact h2, .contact h3,
+.contact span, .social i{
+    color: var(--subColor, teal);
+}
+.contact span {
+    font-size: 18px; font-weight: 600;
+}
+.contact p {
+    margin: 20px 0; font-size: 16px;
+}
+.social {
+    padding-left: 5%; margin-top: 20px;
+}
+.social a {
+    display: inline-flex;
+    margin: 0 10px 10px;
+    padding: 5px;
+    width: 40px; height: 40px;
+    border: 1px solid var(--subColor, teal);
+    text-decoration: none;
+}
+.social a:hover, .social a:focus {
+    background-color: var(--subColor, teal);
+}
+.social i {
+    font-size: 25px;
+}
+.social a:hover i, .social a:focus i {
+    color: white;
+}
+/*styling footer*/
+footer {
+    margin-top: 40px; padding: 20px;
+    background-color: var(--mainColor, violet);
+}
+footer p{
+    color: white;
+}
+/*media queries*/
+@media (max-width: 767px) /*mobile devices*/
+{
+    /*intro*/
+    .intro{
+        padding-left: 0;
+    } 
+    .intro::after, .intro::before {
+        display: none;
+    }
+    /*change fonts*/
+    .navbar-default .navbar-brand {
+        font-size: 30px;
+    }
+    .hElement {
+        font-size: 26px;
+    }
+    p, p.hElement{
+        font-size: 16px;
+    }
+    .social a {
+        width: 30px; height: 30px;
+    }
+    .social i {
+        font-size: 20px;
+    }
+}
+@media (min-width: 500px) {
+    /*typing animation*/
+    .typing{
+        width: max-content;
+    }
+    .typing::before, .typing::after{
+        content: "";
+        position: absolute;
+        top: 0; left: 0;
+    }
+    .typing::before {
+        background-color: white;
+        width: 100%;
+        height: 102%;
+        animation: typing var(--typingSpeed) .3s steps(var(--typingChar)) forwards;
+        -webkit-animation: typing var(--typingSpeed) .3s steps(var(--typingChar)) forwards;
+}
+    .typing::after {
+        background-color: var(--subColor, teal);
+        height: 100%;
+        width: 2px;
+        animation: typing var(--typingSpeed) .3s steps(var(--typingChar)) forwards, blink .75s infinite;
+        -webkit-animation: typing var(--typingSpeed) .3s steps(var(--typingChar)) forwards, blink .75s infinite;
+}
+}
+@keyframes typing {
+    to{
+        left: 100%;
+    }
+}
+@keyframes blink {
+    to{
+        background-color: transparent;
+    }
+}
+/*styling resume*/
+body.cv
+{
+    border: 12px double rgb(29, 40, 70);
+    font-size: 20px;
+}
+.cv h1, .cv p
+{
+    color: rgb(29, 40, 70); 
+    text-align: center;
+    margin: 20px 0;
+}
+.cv span
+{
+    font-weight: bold;
+    display: block;
+}
+.cv .titleCv
+{
+    background-color: rgb(29, 40, 70); 
+    color: white; 
+    padding: 10px; 
+    font-size: 24px; 
+    font-weight: 500;
+}
+.cv div
+{
+    padding: 20px; 
+    color: rgb(29, 40, 70);
+}
+.cv li {
+    padding: 5px 0;
+}
