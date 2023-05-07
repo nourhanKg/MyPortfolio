@@ -45,6 +45,9 @@ p{
 .container {
     overflow: hidden;
 }
+.shadow {
+    box-shadow: 0 3px 10px rgb(0 0 0 / 20%);
+}
 .btn {
     border: none; background: none; border-radius: 0;
     color: inherit; font-size: 16px;
@@ -241,6 +244,43 @@ p{
     -ms-border-radius: 50%;
     -o-border-radius: 50%;
 }
+
+/*styling languages section*/
+.lang {
+    padding-bottom: 20px;
+    /* margin: 60px; */
+}
+.lang h2 {
+    text-align: center;
+    padding: 0 10px;
+}
+.lang .flex{
+    margin-top: 40px;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+}
+.lang .logo {
+    padding: 10px 0;
+    flex-direction: column;
+    justify-content: center;
+    width: 160px; height: 200px;
+    align-items: center;
+}
+.lang .logo:hover, .lang .logo:focus {
+    transform: translateY(-20px);
+    -webkit-transform: translateY(-20px);
+    -moz-transform: translateY(-20px);
+    -ms-transform: translateY(-20px);
+    -o-transform: translateY(-20px);
+}
+.logo span {
+    font-size: 18px;
+}
+.logo img {
+    width: 70%;
+    height: 60%;
+}
 /*styling portfolio section*/
 .projectCard {
     margin-bottom: 30px;
@@ -406,6 +446,11 @@ footer p{
     }
     .social i {
         font-size: 20px;
+    }
+    .lang .logo {
+        width: 120px;
+        height: 160px;
+        gap: 20px;
     }
 }
 @media (min-width: 500px) {
